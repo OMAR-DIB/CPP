@@ -5,5 +5,6 @@
 int main()
 {
 	randomChump("lola");
+	
 	return 0;
 }
