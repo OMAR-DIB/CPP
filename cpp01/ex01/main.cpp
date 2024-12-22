@@ -9,7 +9,7 @@ int main()
 
     // Create the horde
     Zombie* horde = zombieHorde(N, name);
-
+    
     delete[] horde;
 	return 0;
 }
