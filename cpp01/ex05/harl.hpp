@@ -3,6 +3,8 @@
 
 #include <iostream>
 #include <string>
+#include <algorithm>
+#include <cctype>
 
 class Harl
 {
@@ -11,19 +13,13 @@ private:
 	void info( void );
 	void warning( void );
 	void error( void );
+	std::string toLower(std::string& str);
 public:
 	Harl(/* args */);
 	~Harl();
 	void complain( std::string level );
 };
 
-Harl::Harl(/* args */)
-{
-}
-
-Harl::~Harl()
-{
-}
 
 
 #endif

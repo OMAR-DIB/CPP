@@ -1,5 +1,13 @@
 #include "harl.hpp"
 
+Harl::Harl(/* args */)
+{
+}
+
+Harl::~Harl()
+{
+}
+
 void Harl::debug() {
     std::cout << "DEBUG: I love having extra bacon for my 7XL-double-cheese-triple-pickle-special-ketchup burger. I really do!" << std::endl;
 }
@@ -15,6 +23,30 @@ void Harl::warning() {
 void Harl::error() {
     std::cout << "ERROR: This is unacceptable! I want to speak to the manager now." << std::endl;
 }
-void complain( std::string level ){
 
+std::string Harl::toLower(std::string& str) {
+    std::string result = str;
+    for(size_t i = 0; i < result.length(); i++) {
+        result[i] = std::tolower(result[i]);
+    }
+    return result;
+}
+
+void Harl::complain( std::string level ){
+    std::string allLevels[] = {"debug" , "info", "warning", "error"};
+    typedef void (Harl::*harlComplain)();
+    harlComplain allFunctions[] = {&Harl::debug,&Harl::info,&Harl::warning,&Harl::error};
+    int i = 0;
+
+    std::string lev = Harl::toLower(level);
+    while (i < 4)
+    {
+        if (lev == allLevels[i])
+        {
+            (this->*allFunctions[i])(); // Call the corresponding member function
+            return ;
+        }
+        i++;
+    }
+    std::cout << "Invalid level: " << level << std::endl;
 }

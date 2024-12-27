@@ -1,9 +1,9 @@
 NAME = harl_complainer
 
-SRC = main.cpp Harl.cpp
+SRC = main.cpp harl.cpp
 OBJ = $(SRC:.cpp=.o)
 
-CXX = g++
+CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
 all: $(NAME)
