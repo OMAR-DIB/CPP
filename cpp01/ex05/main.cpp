@@ -2,15 +2,12 @@
 
 int main(int ac, char **av)
 {
-    if (av[1])
-    {
-        std::string in = av[1];
-        Harl harl;
+    if (ac != 2)
+        return std::cerr << "Usage: ./harlFilter [LEVEL]" << std::endl, 1;
 
-        harl.complain(in);
-       
-    }
-    (void)ac;
+    std::string in = av[1];
+    Harl harl;
+    harl.complain(in);
 
     return 0;
 }

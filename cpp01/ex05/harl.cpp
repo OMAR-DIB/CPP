@@ -24,7 +24,7 @@ void Harl::error() {
     std::cout << "ERROR: This is unacceptable! I want to speak to the manager now." << std::endl;
 }
 
-std::string Harl::toLower(std::string& str) {
+std::string toLower(std::string& str) {
     std::string result = str;
     for(size_t i = 0; i < result.length(); i++) {
         result[i] = std::tolower(result[i]);
@@ -38,7 +38,7 @@ void Harl::complain( std::string level ){
     harlComplain allFunctions[] = {&Harl::debug,&Harl::info,&Harl::warning,&Harl::error};
     int i = 0;
 
-    std::string lev = Harl::toLower(level);
+    std::string lev = toLower(level);
     while (i < 4)
     {
         if (lev == allLevels[i])

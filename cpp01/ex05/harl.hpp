@@ -13,7 +13,7 @@ private:
 	void info( void );
 	void warning( void );
 	void error( void );
-	std::string toLower(std::string& str);
+	// std::string toLower(std::string& str);
 public:
 	Harl(/* args */);
 	~Harl();
