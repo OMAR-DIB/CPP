@@ -1,20 +1,25 @@
-NAME = ex00
+NAME    = fixed
 
-SRC = main.cpp
-OBJ = $(SRC:.cpp=.o)
+CC      = c++
+CFLAGS  = -Wall -Wextra -Werror -std=c++98
 
-CXX = g++
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98
+SRC     = Fixed.cpp main.cpp 
+OBJ     = $(SRC:.cpp=.o)
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
-        $(CXX) $(CXXFLAGS) $(OBJ) -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJ) -o $@
+
+%.o: %.cpp
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-        rm -f $(OBJ)
+	rm -f $(OBJ)
 
 fclean: clean
-        rm -f $(NAME)
+	rm -f $(NAME)
 
-re: fclean all
+re:	fclean all
+
+.PHONY: all re clean fclean

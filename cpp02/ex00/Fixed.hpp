@@ -13,25 +13,11 @@ public:
     Fixed(/* args */);
     ~Fixed();
     Fixed(const Fixed& cp);
-    Fixed& operator=(const Fixed& other){
-        // Self-assignment check 
-        if (this == &other){
-            return *this;
-        }
-        store = other.store;
-
-        return *this;
-    }
+    Fixed& operator=(const Fixed& other);
+    int getRawBits( void ) const;
+    void setRawBits( int const raw );
 };
 
-Fixed::Fixed(/* args */) : store(0)
-{
-    std::cout << "Default constructor called" << std::endl;
-}
-
-Fixed::~Fixed()
-{
-}
 
 
 #endif
