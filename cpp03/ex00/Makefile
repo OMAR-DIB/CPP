@@ -3,7 +3,7 @@ NAME    = trap
 CC      = c++
 CFLAGS  = -Wall -Wextra -Werror -std=c++98
 
-SRC     = Point.cpp main.cpp Fixed.cpp
+SRC     = ClapTrap.cpp main.cpp 
 OBJ     = $(SRC:.cpp=.o)
 
 all: $(NAME)
