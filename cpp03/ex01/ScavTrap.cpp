@@ -1,43 +1,41 @@
 #include "ScavTrap.hpp"
 
-ScavTrap::ScavTrap(std::string Name) : ClapTrap(Name) {
-	this->HitPoints = 100;
-	this->energy_points = 50;
-	this->AttackDamage = 20;
-	std::cout << "ScavTrap " << this->Name << " created." << std::endl;
+ScavTrap::ScavTrap(std::string name) : ClapTrap(name) {
+	this->hitPoints = 100;
+	this->energyPoints = 50;
+	this->attackDamage = 20;
+	std::cout << "ScavTrap " << this->name << " created." << std::endl;
 }
 
 ScavTrap::~ScavTrap() {
-	std::cout << "ScavTrap " << this->Name << " Destroyed." << std::endl;
+	std::cout << "ScavTrap " << this->name << " Destroyed." << std::endl;
 }
 
 ScavTrap& ScavTrap::operator=(const ScavTrap &other){
     if (this != &other)
 	{
-        AttackDamage = other.AttackDamage;
-		energy_points = other.energy_points;
-		HitPoints = other.HitPoints;
-		Name = other.Name;
+        ClapTrap::operator=(other);
 	}
+    std::cout << "ScavTrap " << name << " has been assigned!\n";
     
 	return *this;
 }
 
 void ScavTrap::guardGate() {
-    std::cout << "ScavTrap " << Name << " is now in Gate Keeper mode." << std::endl;
+    std::cout << "ScavTrap " << name << " is now in Gate Keeper mode." << std::endl;
 }
 
-ScavTrap::ScavTrap(ScavTrap& other) : ClapTrap(Name) {
+ScavTrap::ScavTrap(ScavTrap& other) : ClapTrap(name) {
     *this = other;
 }
 
 void ScavTrap::attack(const std::string& target)
 {
-    if (energy_points <= 0 || HitPoints <= 0){
-        std::cout << "ScavTrap " << Name << " has no hit points or energy left to attack." << std::endl;
+    if (energyPoints <= 0 || hitPoints <= 0){
+        std::cout << "ScavTrap " << name << " has no hit points or energy left to attack." << std::endl;
         return ;
     }
-    energy_points--;
-    std::cout << "ScavTrap " << Name << " attacks " << target << ", causing "
-        << AttackDamage << " points of damage!" << std::endl;
+    energyPoints--;
+    std::cout << "ScavTrap " << name << " attacks " << target << ", causing "
+        << attackDamage << " points of damage!" << std::endl;
 }
