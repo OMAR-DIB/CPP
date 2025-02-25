@@ -6,7 +6,12 @@ ScavTrap::ScavTrap(std::string name) : ClapTrap(name) {
 	this->attackDamage = 20;
 	std::cout << "ScavTrap " << this->name << " created." << std::endl;
 }
-
+ScavTrap::ScavTrap() : ClapTrap() {
+	this->hitPoints = 100;
+	this->energyPoints = 50;
+	this->attackDamage = 20;
+	std::cout << "ScavTrap Default Constructor for" << this->name << " created." << std::endl;
+}
 ScavTrap::~ScavTrap() {
 	std::cout << "ScavTrap " << this->name << " Destroyed." << std::endl;
 }
@@ -25,8 +30,9 @@ void ScavTrap::guardGate() {
     std::cout << "ScavTrap " << name << " is now in Gate Keeper mode." << std::endl;
 }
 
-ScavTrap::ScavTrap(ScavTrap& other) : ClapTrap(other.name) { *this = other; }
-
+ScavTrap::ScavTrap(ScavTrap& other) : ClapTrap(other.name) {
+    *this = other;
+}
 
 void ScavTrap::attack(const std::string& target)
 {

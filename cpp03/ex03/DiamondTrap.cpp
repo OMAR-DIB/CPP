@@ -8,23 +8,34 @@ DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name + "_clap_name") ,  Sc
 	this->energyPoints = ScavTrap::energyPoints;
 	std::cout << "DiamondTrap " << this->name << " constructed" << std::endl;
 }
+
+DiamondTrap::DiamondTrap(): ClapTrap("default_clap_trap")
+{
+	this->name = "default";
+	this->hitPoints = FragTrap::hitPoints;
+	this->energyPoints = ScavTrap::energyPoints;
+	this->attackDamage= FragTrap::attackDamage;
+	std::cout << "DiamondTrap Default Constructor created." << std::endl;
+}
+
 DiamondTrap::DiamondTrap(DiamondTrap& other) : ClapTrap(other) ,  ScavTrap(other), FragTrap(other)
 {
 	*this= other;
 	std::cout << "DiamondTrap Copy Constructor called" << std::endl;
 }
+
 DiamondTrap& DiamondTrap::operator= (const DiamondTrap& other) 
 {
-    std::cout << "DiamondTrap Assignation operator called" << std::endl;
-    if (this != &other) 
-    {
-        ClapTrap::operator=(other);
-        this->name = other.name;
-        this->attackDamage = other.attackDamage;
-        this->hitPoints = other.hitPoints;
-        this->energyPoints = other.energyPoints;
-    }
-    return *this;
+	std::cout << "DiamondTrap Assignation operator called" << std::endl;
+	if (this != &other) 
+	{
+		ClapTrap::operator=(other);
+		this->name = other.name;
+		this->attackDamage = other.attackDamage;
+		this->hitPoints = other.hitPoints;
+		this->energyPoints = other.energyPoints;
+	}
+	return *this;
 }
 
 
@@ -33,6 +44,7 @@ DiamondTrap::~DiamondTrap()
 {
 	std::cout << "DiamondTrap Deconstructor for " << this->name << " called" << std::endl;
 }
+
 // Public Methods
 void	DiamondTrap::attack(const std::string &target)
 {
