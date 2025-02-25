@@ -15,10 +15,33 @@ DiamondTrap::DiamondTrap(DiamondTrap& other) : ClapTrap(other) ,  ScavTrap(other
 }
 DiamondTrap& DiamondTrap::operator= (const DiamondTrap& other) 
 {
-	std::cout << "DiamondTrap Assignation operator called" << std::endl;
-	this->name = other.name +"_clap_name";
-	this->attackDamage = FragTrap::attackDamage;
-	this->hitPoints = FragTrap::hitPoints;
-	this->energyPoints = ScavTrap::energyPoints;
-	return *this;
+    std::cout << "DiamondTrap Assignation operator called" << std::endl;
+    if (this != &other) 
+    {
+        ClapTrap::operator=(other);
+        this->name = other.name;
+        this->attackDamage = other.attackDamage;
+        this->hitPoints = other.hitPoints;
+        this->energyPoints = other.energyPoints;
+    }
+    return *this;
+}
+
+
+// Deconstructors
+DiamondTrap::~DiamondTrap()
+{
+	std::cout << "DiamondTrap Deconstructor for " << this->name << " called" << std::endl;
+}
+// Public Methods
+void	DiamondTrap::attack(const std::string &target)
+{
+	ScavTrap::attack(target);
+}
+
+void	DiamondTrap::whoAmI(void)
+{
+	std::cout << "Hello i am a DiamondTrap named " << this->name <<
+	" and i am originated from the ClapTrap named " << ClapTrap::name << "." <<
+	std::endl;
 }

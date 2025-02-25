@@ -1,7 +1,7 @@
 #include "ClapTrap.hpp"
 
 
-ClapTrap::ClapTrap(): name("default"),  hitPoints(10), energyPoints(10), attackDamage(0)
+ClapTrap::ClapTrap(): name(""),  hitPoints(10), energyPoints(10), attackDamage(0)
 {
 	std::cout << "ClapTrap Default Constructor called" << std::endl;
 }
@@ -49,8 +49,8 @@ void ClapTrap::attack(const std::string &target)
 		return ;
 	}
 	energyPoints--;
-	std::cout << "ClapTrap " << name << " attacks " << target << ", causing "
-			  << attackDamage << " points of damage!" << std::endl;
+	std::cout << "ClapTrap " << name << " attacks " << target<< ", causing " << attackDamage << " points of damage!" << std::endl;
+	 
 }
 
 void ClapTrap::takeDamage(unsigned int amount)
@@ -69,14 +69,14 @@ void ClapTrap::beRepaired(unsigned int amount)
 {
 	if (energyPoints <= 0 )
 	{
-		std::cout << "ClapTrap " << name << " has no energy left to attack." << std::endl;
+		std::cout << "ClapTrap " << name << " has no energy left to attack.repair failed." << std::endl;
 		return ;
 	}
-	if (hitPoints <= 0)
-	{
-		std::cout << "ClapTrap " << name << " has no hit points left to attack." << std::endl;
-		return ;
-	}
+	// if (hitPoints <= 0)
+	// {
+	// 	std::cout << "ClapTrap " << name << " has no hit points left to attack." << std::endl;
+	// 	return ;
+	// }
 	hitPoints += amount;
 	energyPoints--;
 	std::cout << "ClapTrap " << name << " repairs itself, recovering "

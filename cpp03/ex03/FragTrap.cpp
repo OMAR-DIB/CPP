@@ -25,9 +25,10 @@ void FragTrap::highFivesGuys() {
     std::cout << "FragTrap " << name << " is now in request high 5 guys." << std::endl;
 }
 
-FragTrap::FragTrap(FragTrap& other) : ClapTrap(name) {
-	*this = other;
+FragTrap::FragTrap(FragTrap& other) : ClapTrap(other.name) {
+    *this = other;
 }
+
 
 FragTrap& FragTrap::operator = (const FragTrap& other) {
 	if (this != &other)

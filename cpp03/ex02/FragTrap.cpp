@@ -11,15 +11,15 @@ FragTrap::~FragTrap() {
 	std::cout << "FragTrap " << this->name << " Destroyed." << std::endl;
 }
 
-void FragTrap::attack(const std::string& target) {
-	if (hitPoints <= 0 || energyPoints <= 0) {
-		std::cout << "FragTrap " << name << " has no hit points or energy left to attack." << std::endl;
-		return ;
-	}
-	energyPoints--;
-    std::cout << "FragTrap " << name << " attacks " << target << ", causing "
-		<< attackDamage << " points of damage!" << std::endl;
-}
+// void FragTrap::attack(const std::string& target) {
+// 	if (hitPoints <= 0 || energyPoints <= 0) {
+// 		std::cout << "FragTrap " << name << " has no hit points or energy left to attack." << std::endl;
+// 		return ;
+// 	}
+// 	energyPoints--;
+//     std::cout << "FragTrap " << name << " attacks " << target << ", causing "
+// 		<< attackDamage << " points of damage!" << std::endl;
+// }
 
 void FragTrap::highFivesGuys() {
     std::cout << "FragTrap " << name << " is now in request high 5 guys." << std::endl;
