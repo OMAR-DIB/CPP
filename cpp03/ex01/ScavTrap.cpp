@@ -25,7 +25,7 @@ void ScavTrap::guardGate() {
     std::cout << "ScavTrap " << name << " is now in Gate Keeper mode." << std::endl;
 }
 
-ScavTrap::ScavTrap(ScavTrap& other) : ClapTrap(name) {
+ScavTrap::ScavTrap(ScavTrap& other) {
     *this = other;
 }
 

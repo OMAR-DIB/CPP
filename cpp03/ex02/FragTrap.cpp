@@ -25,7 +25,7 @@ void FragTrap::highFivesGuys() {
     std::cout << "FragTrap " << name << " is now in request high 5 guys." << std::endl;
 }
 
-FragTrap::FragTrap(FragTrap& other) : ClapTrap(name) {
+FragTrap::FragTrap(FragTrap& other) {
 	*this = other;
 }
 
