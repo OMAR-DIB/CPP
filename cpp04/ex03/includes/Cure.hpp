@@ -4,13 +4,13 @@
 
 class Cure : public AMateria
 {
-private:
-    /* data */
 public:
     Cure(/* args */);
     virtual ~Cure();
     virtual AMateria* clone() const;
     virtual void use(ICharacter& target);
+    Cure(const Cure& other);
+    Cure& operator=(const Cure& other);
 };
 
 #endif

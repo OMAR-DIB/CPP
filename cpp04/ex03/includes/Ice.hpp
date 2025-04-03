@@ -9,6 +9,8 @@ class Ice : public AMateria {
         virtual ~Ice();
         virtual AMateria* clone() const;
         virtual void use(ICharacter& target);
+        Ice(const Ice& other);
+        Ice& operator=(const Ice& other);
 };
 
 #endif

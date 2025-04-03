@@ -18,5 +18,17 @@ void AMateria::use(ICharacter& target) {
 }
 
 
+AMateria::AMateria(const AMateria& other) : type(other.type)
+{
+    std::cout << "AMateria copy constructor called" << std::endl;
+}
 
-
+AMateria& AMateria::operator=(const AMateria& other)
+{
+    std::cout << "AMateria assignment operator called" << std::endl;
+    if (this != &other)
+    {
+        this->type = other.type;
+    }
+    return *this;
+}

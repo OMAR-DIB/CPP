@@ -19,6 +19,8 @@ public:
     virtual AMateria* clone() const = 0;
     virtual ~AMateria();
     virtual void use(ICharacter& target);
+    AMateria(const AMateria& other);
+    AMateria& operator=(const AMateria& other);
 };
 
 #endif
