@@ -7,7 +7,7 @@ Animal::Animal(/* args */)
 
 Animal::Animal(const std::string& type)
 {
-	std::cout << "Type constructor of Animal" << std::endl;
+	std::cout << "Type constructor of Animal is initialized" << std::endl;
 	this->type = type;
 }
 

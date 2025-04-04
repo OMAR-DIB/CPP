@@ -5,11 +5,9 @@
 
 class Cat : public Animal
 {
-private:
-    /* data */
 public:
-    Cat(/* args */);
-    ~Cat();
+    Cat();
+    virtual ~Cat();
     void makeSound();
     Cat(const Cat& other);
     Cat& operator = (const Cat& other);
