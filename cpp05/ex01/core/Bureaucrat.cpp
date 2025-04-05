@@ -1,8 +1,18 @@
+#include "../includes/Form.hpp"
 #include "../includes/Bureaucrat.hpp"
+// Bureaucrat::Bureaucrat()
+// {
+//     std::cout << "constrcutor is initialized" << std::endl;
+// }
 
-Bureaucrat::Bureaucrat()
+Bureaucrat::Bureaucrat(std::string name,int grade) : name(name) , grade(grade)
 {
-    std::cout << "constrcutor is initialized" << std::endl;
+    if (grade < 1) {
+        throw GradeTooHighException();
+    }
+    if (grade > 150) {
+        throw GradeTooLowException();
+    }
 }
 
 Bureaucrat::Bureaucrat(Bureaucrat& other) {
@@ -34,7 +44,7 @@ void Bureaucrat::incrementGrade(){
 }
 void Bureaucrat::decrementGrade(){
     this->grade++;
-    if (grade < max_grade){
+    if (grade > max_grade){
         throw GradeTooLowException();
     }
 }
@@ -50,4 +60,13 @@ const char* Bureaucrat::GradeTooHighException::what() const throw() {
 
 const char* Bureaucrat::GradeTooLowException::what() const throw() {
     return "Grade is too low!\n";
+}
+
+void Bureaucrat::signForm(Form& f){
+    try{
+        f.beSigned(*this);
+        std::cout << name <<" signed "<< f.getName() << std::endl;
+    } catch (const std::exception &e){
+        std::cout << name <<" couldn’t sign "<< f.getName() <<" because "<< e.what() << std::endl;
+    }
 }

@@ -36,7 +36,7 @@ void Bureaucrat::incrementGrade(){
 }
 void Bureaucrat::decrementGrade(){
     this->grade++;
-    if (grade < max_grade){
+    if (grade > max_grade){
         throw GradeTooLowException();
     }
 }

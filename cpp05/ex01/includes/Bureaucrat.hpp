@@ -1,11 +1,12 @@
 #ifndef BUREAUCRAT_HPP
 #define BUREAUCRAT_HPP
-
+// #pragma once
+#include "./Form.hpp"
 #include <iostream>
 #include <string>
-// #include <stdexcept>
-// #include <climits>
-
+#include <stdexcept>
+#include <climits>
+class Form;
 class Bureaucrat
 {
 private:
@@ -15,6 +16,7 @@ private:
     int grade;
 public:
     Bureaucrat();
+	Bureaucrat(std::string name,int grade);
     Bureaucrat(Bureaucrat& other);
 	~Bureaucrat();
 	std::string getName();
@@ -22,6 +24,8 @@ public:
 	void incrementGrade();
 	void decrementGrade();
 	Bureaucrat& operator = (Bureaucrat& other);
+
+	void signForm(Form& f);
 
     class GradeTooHighException : public std::exception {
 		public:
@@ -33,8 +37,8 @@ public:
 			const char* what() const throw();
 	};
 };
+std::ostream &	operator<<(std::ostream & o, Bureaucrat &rSym);
 
-std::ostream &	operator<<(std::ostream & o, Bureaucrat const &rSym);
 
 
 

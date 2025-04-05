@@ -5,15 +5,15 @@
 
 int main() {
     try {
-        Bureaucrat bob("Bob", 75);
-        std::cout << bob;
+        Bureaucrat b("b", 75);
+        std::cout << b;
         
-        bob.incrementGrade();
-        std::cout << "After incrementing grade: " << bob;
+        b.incrementGrade();
+        std::cout << "After incrementing grade: " << b;
 
-        Bureaucrat alice("Alice", 1);
-        std::cout << alice;
-        alice.incrementGrade();  // Should throw GradeTooHighException
+        Bureaucrat a("a", 1);
+        std::cout << a;
+        a.incrementGrade();  // Should throw GradeTooHighException
     } catch (const Bureaucrat::GradeTooHighException &e) {
         std::cerr << "Caught exception: " << e.what() << std::endl;
     }

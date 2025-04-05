@@ -1,7 +1,8 @@
-NAME = beau
+NAME = be
 
 SRCS =  main.cpp			\
-		core/
+		core/Bureaucrat.cpp \
+		core/Form.cpp
 
 OBJDIR = objs
 OBJCS = $(SRCS:%.cpp=$(OBJDIR)/%.o)
