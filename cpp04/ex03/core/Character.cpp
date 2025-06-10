@@ -44,7 +44,10 @@ void Character::unequip(int idx) {
         this->inventory[idx] = NULL;
 }
 
-void Character::use(int idx, ICharacter& target) {
-    if (idx >= 0 && idx < 4 && this->inventory[idx])
-        this->inventory[idx]->use(target);
+void Character::use(int idx, ICharacter& target){
+    if (idx < 0 || idx >= 4 || !(this->inventory)[idx]){
+        std::cout << "no valid index found to use (use)" << std::endl;
+        return;
+    }
+    ((this->inventory)[idx])->use(target);
 }

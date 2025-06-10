@@ -5,7 +5,7 @@
 #include <string>
 #include <iostream>
 
-// ✅ Forward declaration
+// Forward declaration
 class ICharacter;
 
 class AMateria

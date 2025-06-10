@@ -3,10 +3,12 @@
 
 Brain::Brain(/* args */)
 {
+    std::cout << "Brain constructor called" << std::endl;
 }
 
 Brain::~Brain()
 {
+    std::cout << "destructor Brain called" << std::endl;
 }
 
 Brain::Brain(const Brain& other)
