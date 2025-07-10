@@ -3,16 +3,22 @@ Bureaucrat::Bureaucrat()
 {
     std::cout << "constrcutor is initialized" << std::endl;
 }
-Bureaucrat::Bureaucrat(std::string name,int grade) : name(name) , grade(grade)
+Bureaucrat::Bureaucrat(std::string name,int grade) : name(name) 
 {
     std::cout << "constrcutor is initialized" << std::endl;
+    if (grade < 1)
+		throw GradeTooHighException();
+	else if (grade > 150)
+		throw GradeTooLowException();
+	else
+		this->grade = grade;
 }
 Bureaucrat::Bureaucrat(Bureaucrat& other) {
 	*this = other;
 }
 
 Bureaucrat::~Bureaucrat() {
-	std::cout << "destroy of"<< name << " is initialized" << std::endl;
+	std::cout << "destroy of "<< name << " is initialized" << std::endl;
 }
 
 Bureaucrat& Bureaucrat::operator = (Bureaucrat& other) {

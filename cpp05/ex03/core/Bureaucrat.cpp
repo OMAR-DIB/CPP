@@ -32,7 +32,7 @@ std::string Bureaucrat::getName(){
     return name;
 }
 
-int Bureaucrat::getGrade(){
+int Bureaucrat::getGrade() const{
     return grade;
 }
 
@@ -67,6 +67,21 @@ void Bureaucrat::signForm(Form& f){
         f.beSigned(*this);
         std::cout << name <<" signed "<< f.getName() << std::endl;
     } catch (const std::exception &e){
-        std::cout << name <<" couldn\'t sign "<< f.getName() <<" because "<< e.what() << std::endl;
+        std::cout << name <<" couldn’t sign "<< f.getName() <<" because "<< e.what() << std::endl;
     }
+}
+
+
+void Bureaucrat::executeForm(Form const & form){
+    try
+    {
+        form.execute(*this);
+         std::cout << name <<"excuted "<< form.getName() << std::endl;
+    }   
+    catch(const std::exception& e)
+    {
+        std::cerr << "executeForm Failed ->"<<e.what() << '\n';
+    }
+    
+   
 }
