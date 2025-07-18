@@ -8,32 +8,42 @@ class Bureaucrat;
 class Form
 {
 private:
-    std::string const name;
-    bool is_signed;
-    const int grade_sign;
+	std::string const name;
+	bool is_signed;
+	const int grade_sign;
 	const int grade_execute;
+
 public:
-    Form(std::string name, int grade_sign, int grade_execute);
-    ~Form();
-    int getGrade_sign() const;
-int getGrade_excute() const;
-std::string getName() const;
-bool getSign() const;
-    void beSigned(Bureaucrat& b);
+	// Canonical form
+	Form(); // Default constructor
+	Form(const Form& other); // Copy constructor
+	Form& operator=(const Form& other) = delete; // Deleted assignment operator
+	~Form(); // Destructor
 
-    class GradeTooHighException: std::exception {
-		public:
-			const char *what() const throw();
+	// Param constructor
+	Form(std::string name, int grade_sign, int grade_execute);
+
+	// Getters
+	int getGrade_sign() const;
+	int getGrade_excute() const;
+	std::string getName() const;
+	bool getSign() const;
+
+	// Member function
+	void beSigned(Bureaucrat &b);
+
+	// Exceptions
+	class GradeTooHighException : public std::exception {
+	public:
+		const char *what() const throw();
 	};
 
-	class GradeTooLowException: std::exception {
-		public:
-			const char *what() const throw();
+	class GradeTooLowException : public std::exception {
+	public:
+		const char *what() const throw();
 	};
-    
 };
 
-std::ostream&	operator<<(std::ostream & o, Form  &rSym);
-
+std::ostream &operator<<(std::ostream &o, Form &rSym);
 
 #endif

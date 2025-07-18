@@ -1,21 +1,41 @@
 #include "../includes/AForm.hpp"
 #include "../includes/Bureaucrat.hpp"
 
-AForm::AForm(std::string name,int grade_sign,int grade_execute): name(name),is_signed(false), grade_sign(grade_sign), grade_execute(grade_execute) {
-    if (grade_sign < 1 || grade_execute < 1) {
-        throw GradeTooHighException();
-    }
-    if (grade_sign > 150 || grade_execute > 150) {
-        throw GradeTooLowException();
-    }
+// Default constructor
+AForm::AForm()
+	: name("DefaultForm"), is_signed(false), grade_sign(150), grade_execute(150)
+{
+	std::cout << "AForm default constructor called\n";
 }
 
+// Param constructor
+AForm::AForm(std::string name, int grade_sign, int grade_execute)
+	: name(name), is_signed(false), grade_sign(grade_sign), grade_execute(grade_execute)
+{
+	if (grade_sign < 1 || grade_execute < 1)
+		throw GradeTooHighException();
+	if (grade_sign > 150 || grade_execute > 150)
+		throw GradeTooLowException();
+}
+
+// Copy constructor
+AForm::AForm(const AForm& other)
+	: name(other.name),
+	  is_signed(other.is_signed),
+	  grade_sign(other.grade_sign),
+	  grade_execute(other.grade_execute)
+{
+	std::cout << "AForm copy constructor called\n";
+}
+
+// Destructor
 AForm::~AForm()
 {
-    std::cout << "destructor is called" << std::endl;
+	std::cout << "AForm destructor called\n";
 }
 
-int AForm::getGrade_sign() {
+
+int AForm::getGrade_sign() const  {
     return grade_sign;
 }
 
@@ -27,7 +47,7 @@ std::string AForm::getName() const {
     return name;
 }
 
-bool AForm::getSign()  {
+bool AForm::getSign()  const {
     return is_signed;
 }
 

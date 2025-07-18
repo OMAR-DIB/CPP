@@ -50,3 +50,19 @@ std::ostream & operator<<(std::ostream & o, Form  &rsym){
     return o;
 }
 
+Form::Form()
+    : name("DefaultForm"), is_signed(false), grade_sign(150), grade_execute(150)
+{
+    std::cout << "Form default constructor called\n";
+}
+Form& Form::operator=(const Form& other){
+    (void) other;
+	return (*this);
+}
+// Copy constructor
+Form::Form(const Form &other)
+    : name(other.name), is_signed(other.is_signed),
+      grade_sign(other.grade_sign), grade_execute(other.grade_execute)
+{
+    std::cout << "Form copy constructor called\n";
+}

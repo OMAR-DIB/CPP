@@ -22,6 +22,11 @@ public:
     bool getSign() ;
     void beSigned(Bureaucrat& b);
 
+    // Canonical form
+	Form(); // Default constructor
+	Form(const Form& other); // Copy constructor
+	Form& operator=(const Form& other); // Deleted assignment operator
+	
 
     virtual void execute(Bureaucrat const & executor) const = 0;
 

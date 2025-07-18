@@ -1,42 +1,50 @@
 #ifndef AFORM_HPP
 #define AFORM_HPP
-// #pragma once
+
 #include <iostream>
 #include <string>
-// #include "Bureaucrat.hpp"
+
 class Bureaucrat;
 
 class AForm
 {
 private:
-    std::string const name;
-    bool is_signed;
-    const int grade_sign;
+	std::string const name;
+	bool is_signed;
+	const int grade_sign;
 	const int grade_execute;
+
 public:
-    AForm(std::string name, int grade_sign, int grade_execute);
-    virtual ~AForm();
-    int getGrade_sign() ;
-    int getGrade_execute() const ;
-    std::string getName() const ;
-    bool getSign() ;
-    void beSigned(Bureaucrat& b);
+	// Canonical form
+	AForm(); // Default constructor
+	AForm(const AForm& other); // Copy constructor
+	AForm& operator=(const AForm& other) = delete; // Deleted assignment operator
+	virtual ~AForm(); // Virtual destructor
 
+	// Param constructor
+	AForm(std::string name, int grade_sign, int grade_execute);
 
-    virtual void execute(Bureaucrat const & executor) const = 0;
+	// Getters
+	int getGrade_sign() const;
+	int getGrade_execute() const;
+	std::string getName() const;
+	bool getSign() const;
 
-    class GradeTooHighException: std::exception {
-		public:
-			const char *what() const throw();
+	// Member functions
+	void beSigned(Bureaucrat& b);
+	virtual void execute(Bureaucrat const & executor) const = 0;
+
+	// Exceptions
+	class GradeTooHighException : public std::exception {
+	public:
+		const char* what() const throw();
 	};
 
-	class GradeTooLowException: std::exception {
-		public:
-			const char *what() const throw();
+	class GradeTooLowException : public std::exception {
+	public:
+		const char* what() const throw();
 	};
-    
 };
-
 std::ostream &	operator<<(std::ostream & o, AForm  &rSym);
 
 

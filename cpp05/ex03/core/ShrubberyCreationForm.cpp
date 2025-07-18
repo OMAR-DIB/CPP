@@ -8,18 +8,30 @@ ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : Form("shruby"
 {
     std::cout << target << " has been shrubyzed." << std::endl;
 }
+// Default constructor
+ShrubberyCreationForm::ShrubberyCreationForm()
+	: Form("ShrubberyCreation", 145, 137), target("DefaultTarget") {}
 
-ShrubberyCreationForm::~ShrubberyCreationForm()
-{
-    std::cout << "destructor ShrubberyCreationForm is called." << std::endl;
+
+// Copy constructor
+ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& other)
+	: Form(other), target(other.target) {}
+
+// Assignment operator
+ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationForm& other) {
+	if (this != &other)
+		target = other.target;
+	return *this;
 }
 
+// Destructor
+ShrubberyCreationForm::~ShrubberyCreationForm() {}
 void ShrubberyCreationForm::execute(Bureaucrat const &executor) const
 {
     if (executor.getGrade() > getGrade_execute()) 
         throw GradeTooLowException();
     std::ofstream of((target + "_shrubbery").c_str());
-    of << "	          &&& &&  & &&\n"
+    of << "	        &&& &&  & &&\n"
        << "      && &\\/&\\|& ()|/ @, &&\n"
        << "      &\\/(/&/&||/& /_/)_&/_&\n"
        << "   &() &\\/&|()|/&\\/ '%\" & ()\n"

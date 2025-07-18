@@ -1,6 +1,6 @@
 #ifndef BUREAUCRAT_HPP
 #define BUREAUCRAT_HPP
-// #pragma once
+
 #include "./AForm.hpp"
 #include <iostream>
 #include <string>
