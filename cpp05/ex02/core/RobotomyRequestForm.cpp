@@ -18,6 +18,5 @@ void RobotomyRequestForm::execute(const Bureaucrat &executor) const {
         std::cout << target << " has been robotomized!" << std::endl;
     else
         std::cout << "Robotomize failed on " << target << "!" << std::endl;
-
 }
 

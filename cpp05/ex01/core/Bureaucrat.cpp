@@ -37,20 +37,19 @@ int Bureaucrat::getGrade(){
 }
 
 void Bureaucrat::incrementGrade(){
-    this->grade--;
-    if (grade < min_grade){
+    if (grade - 1 < min_grade)
         throw GradeTooHighException();
-    }
+    --grade;
 }
+
 void Bureaucrat::decrementGrade(){
-    this->grade++;
-    if (grade > max_grade){
+    if (grade + 1 > max_grade)
         throw GradeTooLowException();
-    }
+    ++grade;
 }
 
 std::ostream &	operator<<(std::ostream & o, Bureaucrat  &rSym){
-   o << rSym.getName() << ", bureaucrat grade ." << rSym.getGrade() << "\n";
+   o << rSym.getName() << ", bureaucrat grade " << rSym.getGrade() << ".\n";
     return o;
 }
 
@@ -62,11 +61,20 @@ const char* Bureaucrat::GradeTooLowException::what() const throw() {
     return "Grade is too low!\n";
 }
 
+//void Bureaucrat::signForm(Form& f){
+//    try{
+//        f.beSigned(*this);
+//        std::cout << name <<" signed "<< f.getName() << std::endl;
+//    } catch (const std::exception &e){
+//        std::cout << name <<" couldn\'t sign "<< f.getName() <<" because "<< e.what() << std::endl;
+//    }
+//}
+
 void Bureaucrat::signForm(Form& f){
-    try{
+    try {
         f.beSigned(*this);
-        std::cout << name <<" signed "<< f.getName() << std::endl;
-    } catch (const std::exception &e){
-        std::cout << name <<" couldn\'t sign "<< f.getName() <<" because "<< e.what() << std::endl;
+        std::cout << name << " signed " << f.getName() << std::endl;
+    } catch (const std::exception &e) {
+        std::cout << name << " couldn't sign " << f.getName() << " because " << e.what() << std::endl;
     }
 }

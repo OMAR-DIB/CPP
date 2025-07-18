@@ -19,7 +19,7 @@ void ShrubberyCreationForm::execute(Bureaucrat const &executor) const
     if (executor.getGrade() > getGrade_execute()) 
         throw GradeTooLowException();
     std::ofstream of((target + "_shrubbery").c_str());
-    of << "	          &&& &&  & &&\n"
+    of << "	        &&& &&  & &&\n"
        << "      && &\\/&\\|& ()|/ @, &&\n"
        << "      &\\/(/&/&||/& /_/)_&/_&\n"
        << "   &() &\\/&|()|/&\\/ '%\" & ()\n"

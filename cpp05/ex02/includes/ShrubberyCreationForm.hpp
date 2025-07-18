@@ -10,7 +10,6 @@ private:
 public:
     ShrubberyCreationForm(std::string target);
     ~ShrubberyCreationForm();
-
     void execute(Bureaucrat const & executor) const ;
     
 };

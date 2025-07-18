@@ -15,14 +15,14 @@ Bureaucrat::Bureaucrat(std::string name,int grade) : name(name) , grade(grade)
     }
 }
 
-Bureaucrat::Bureaucrat(Bureaucrat& other) {
-	*this = other;
-}
 
 Bureaucrat::~Bureaucrat() {
-	std::cout << "destroy of"<< name << " is initialized" << std::endl;
+    std::cout << "destroy of"<< name << " is initialized" << std::endl;
 }
 
+Bureaucrat::Bureaucrat(Bureaucrat& other) {
+    *this = other;
+}
 Bureaucrat& Bureaucrat::operator = (Bureaucrat& other) {
 	if  (this != &other) 
 		this->grade = other.grade;

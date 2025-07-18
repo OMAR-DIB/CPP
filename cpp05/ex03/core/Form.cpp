@@ -49,3 +49,4 @@ std::ostream & operator<<(std::ostream & o, Form  &rsym){
     o << rsym.getName() << ", Form grade sign :" << rsym.getGrade_sign() << ", Form grade execute :" << rsym.getGrade_execute() <<",is Form signed? :" << rsym.getSign() <<"\n";
     return o;
 }
+

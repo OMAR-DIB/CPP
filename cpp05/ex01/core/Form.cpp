@@ -15,22 +15,18 @@ Form::~Form()
     std::cout << "destructor is called" << std::endl;
 }
 
-int Form::getGrade_sign() {
+int Form::getGrade_sign() const {
     return grade_sign;
 }
-
-int Form::getGrade_excute() {
-    return  grade_execute;
+int Form::getGrade_excute() const {
+    return grade_execute;
 }
-
-std::string Form::getName() {
+std::string Form::getName() const {
     return name;
 }
-
-bool Form::getSign()  {
+bool Form::getSign() const {
     return is_signed;
 }
-
 void Form::beSigned(Bureaucrat& bur){
     if (bur.getGrade() > grade_sign)
         throw GradeTooLowException();
@@ -46,6 +42,8 @@ const char* Form::GradeTooLowException::what() const throw() {
 }
 
 std::ostream & operator<<(std::ostream & o, Form  &rsym){
-    o << rsym.getName() << ", form grade sign :" << rsym.getGrade_sign() << ", form grade execute :" << rsym.getGrade_excute() <<",is form signed? :" << rsym.getSign() <<"\n";
-    return o;
+    o << rsym.getName() << ", form grade sign: " << rsym.getGrade_sign()
+  << ", grade execute: " << rsym.getGrade_excute()
+  << ", signed: " << (rsym.getSign() ? "yes" : "no") << "." << std::endl;
+  return o;
 }
