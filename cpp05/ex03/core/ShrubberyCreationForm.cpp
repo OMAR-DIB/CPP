@@ -28,6 +28,8 @@ ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationF
 ShrubberyCreationForm::~ShrubberyCreationForm() {}
 void ShrubberyCreationForm::execute(Bureaucrat const &executor) const
 {
+    if (!getSign())
+        throw Form::FormNotSignedException();
     if (executor.getGrade() > getGrade_execute()) 
         throw GradeTooLowException();
     std::ofstream of((target + "_shrubbery").c_str());

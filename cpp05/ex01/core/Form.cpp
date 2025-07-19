@@ -18,7 +18,7 @@ Form::Form(std::string name, int grade_sign, int grade_execute) : name(name), is
         throw GradeTooLowException();
     }
 }
-// Copy constructor
+
 Form::Form(const Form &other)
     : name(other.name), is_signed(other.is_signed),
       grade_sign(other.grade_sign), grade_execute(other.grade_execute)
@@ -26,8 +26,12 @@ Form::Form(const Form &other)
     std::cout << "Form copy constructor called\n";
 }
 
-// Assignment operator (deleted)
-Form &Form::operator=(const Form &other) = delete;
+Form &Form::operator=(const Form &other) {
+    if (this != &other) {
+        this->is_signed = other.is_signed;
+    }
+    return *this;
+}
 
 Form::~Form()
 {

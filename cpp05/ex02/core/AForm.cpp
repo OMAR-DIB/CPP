@@ -27,7 +27,12 @@ AForm::AForm(const AForm& other)
 {
 	std::cout << "AForm copy constructor called\n";
 }
-
+AForm& AForm::operator=(const AForm& other){
+	if(this != &other){
+		this->is_signed = other.is_signed;
+	}
+	 return (*this);
+}
 // Destructor
 AForm::~AForm()
 {

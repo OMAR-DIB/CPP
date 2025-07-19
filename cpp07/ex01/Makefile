@@ -1,12 +1,8 @@
 NAME = be
-VAR_FILE = home_shrubbery
 
 SRCS =  main.cpp					\
-		core/Bureaucrat.cpp 		\
-		core/AForm.cpp				\
-		core/RobotomyRequestForm.cpp \
-		core/PresidentialPardonForm.cpp \
-		core/ShrubberyCreationForm.cpp \
+		
+		
 
 OBJDIR = objs
 OBJCS = $(SRCS:%.cpp=$(OBJDIR)/%.o)
@@ -33,7 +29,6 @@ clean:
 
 fclean: clean
 	rm -f $(NAME)
-	rm -f $(VAR_FILE)
 
 re: fclean all
 

@@ -19,7 +19,7 @@ public:
     int getGrade_sign() ;
     int getGrade_execute() const ;
     std::string getName() const ;
-    bool getSign() ;
+    bool getSign() const;
     void beSigned(Bureaucrat& b);
 
     // Canonical form
@@ -39,6 +39,9 @@ public:
 		public:
 			const char *what() const throw();
 	};
+    class FormNotSignedException : public std::exception {
+        const char* what() const throw();
+    };
     
 };
 

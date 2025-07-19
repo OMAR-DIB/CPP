@@ -91,7 +91,7 @@ int main(void)
 
 	std::cout << "\033[33m" << std::endl << "Test ex02 RobotomyRequestForm" << "\033[0m" << std::endl;
 	RobotomyRequestForm Robo_form("I am a robo form");
-	Bureaucrat Mr_Robo("Mr_Robo", 45);
+	Bureaucrat Mr_Robo("Mr_Robo", 25);
 
 	Mr_Robo.executeForm(Robo_form);
 	Mr_Robo.signForm(Robo_form);

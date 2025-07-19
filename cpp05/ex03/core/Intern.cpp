@@ -33,15 +33,15 @@ Form *Intern::makeForm(std::string name, std::string target)
     };
     
     // Here we check each form type and create the corresponding form.
-    if (name == formNames[0]) {
+       if (name == formNames[0]) {
         std::cout << "Intern creates " << formNames[0] << std::endl;
         return new PresidentialPardonForm(target);
     }
-    if (name == formNames[1]) {
+    else if (name == formNames[1]) {
         std::cout << "Intern creates " << formNames[1] << std::endl;
         return new RobotomyRequestForm(target);
     }
-    if (name == formNames[2]) {
+    else if (name == formNames[2]) {
         std::cout << "Intern creates " << formNames[2] << std::endl;
         return new ShrubberyCreationForm(target);
     }

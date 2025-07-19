@@ -27,7 +27,7 @@ std::string Form::getName() const {
     return name;
 }
 
-bool Form::getSign()  {
+bool Form::getSign() const  {
     return is_signed;
 }
 
@@ -65,4 +65,8 @@ Form::Form(const Form &other)
       grade_sign(other.grade_sign), grade_execute(other.grade_execute)
 {
     std::cout << "Form copy constructor called\n";
+}
+
+const char* Form::FormNotSignedException::what() const throw() {
+    return "Form is not signed!";
 }

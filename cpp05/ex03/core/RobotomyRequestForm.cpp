@@ -24,6 +24,8 @@ RobotomyRequestForm::~RobotomyRequestForm()
 }
 
 void RobotomyRequestForm::execute(const Bureaucrat &executor) const {
+    if (!Form::getSign())
+        throw Form::FormNotSignedException();
     if (executor.getGrade() > getGrade_execute()) 
         throw GradeTooLowException();
     if (std::rand() % 2)

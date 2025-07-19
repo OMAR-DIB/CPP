@@ -15,26 +15,23 @@ private:
 	const int grade_execute;
 
 public:
-	// Canonical form
-	AForm(); // Default constructor
-	AForm(const AForm& other); // Copy constructor
-	AForm& operator=(const AForm& other) = delete; // Deleted assignment operator
-	virtual ~AForm(); // Virtual destructor
+	
+	AForm(); 
+	AForm(const AForm& other); 
+	AForm& operator=(const AForm& other); 
+	virtual ~AForm();
 
-	// Param constructor
+	
 	AForm(std::string name, int grade_sign, int grade_execute);
 
-	// Getters
 	int getGrade_sign() const;
 	int getGrade_execute() const;
 	std::string getName() const;
 	bool getSign() const;
 
-	// Member functions
 	void beSigned(Bureaucrat& b);
 	virtual void execute(Bureaucrat const & executor) const = 0;
 
-	// Exceptions
 	class GradeTooHighException : public std::exception {
 	public:
 		const char* what() const throw();

@@ -1,4 +1,5 @@
 NAME = be
+VAR_FILE = Hello_shrubbery
 
 SRCS =  main.cpp					\
 		core/Bureaucrat.cpp 		\
@@ -33,6 +34,7 @@ clean:
 
 fclean: clean
 	rm -f $(NAME)
+	rm -f $(VAR_FILE)
 
 re: fclean all
 
