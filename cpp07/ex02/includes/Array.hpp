@@ -10,31 +10,31 @@
 template <typename T>
 class Array {
 private:
-    T* elements;
-    std::size_t _size;
+    T* arr;
+    unsigned int _size;
 
 public:
-    Array() : elements(NULL), _size(0) {}
+    Array() : arr(NULL), _size(0) {}
 
-    Array(unsigned int n) : elements(new T[n]()), _size(n) {}
+    Array(unsigned int n) : arr(new T[n]()), _size(n) {}
 
-    Array(const Array& other) : elements(NULL), _size(0) {
+    Array(const Array& other) : arr(NULL), _size(0) {
         *this = other;
     }
 
     ~Array() {
-        delete[] elements;
+        delete[] arr;
     }
 
     Array& operator=(const Array& other) {
         if (this != &other) {
-            delete[] elements;
+            delete[] arr;
 
             _size = other._size;
-            elements = (_size > 0) ? new T[_size]() : NULL;
+            arr = (_size > 0) ? new T[_size]() : NULL;
 
             for (std::size_t i = 0; i < _size; i++) {
-                elements[i] = other.elements[i];
+                arr[i] = other.arr[i];
             }
         }
         return *this;
@@ -44,14 +44,14 @@ public:
         if (index >= _size) {
             throw std::out_of_range("Index out of bounds");
         }
-        return elements[index];
+        return arr[index];
     }
 
     const T& operator[](std::size_t index) const {
         if (index >= _size) {
             throw std::out_of_range("Index out of bounds");
         }
-        return elements[index];
+        return arr[index];
     }
 
     std::size_t size() const {
