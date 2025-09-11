@@ -50,7 +50,7 @@ bool BitcoinExchange::loadData(const std::string &filename)
 
 		// Split by comma
 		size_t pos = line.find(',');
-		if (pos == std::string::npos)
+		if (pos == std::string::npos) // std::string::npos is a special constant value that represents "not found."
 		{
 			std::cerr << "Warning: bad DB line => " << line << std::endl;
 			continue;

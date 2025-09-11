@@ -1,7 +1,7 @@
 NAME = PmergeMe
 
 SRCS =  main.cpp	\
-		core/RPN.cpp	\
+
 
 
 OBJDIR = objs

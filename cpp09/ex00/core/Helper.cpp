@@ -50,7 +50,7 @@ bool Helper::isValidDate(const std::string &date){
     
     // Check for leap year
     if (month == 2 && ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0))) {
-        daysInMonth[1] = 29;
+        daysInMonth[1] = 29;	
     }
     
     if (day > daysInMonth[month - 1]) {

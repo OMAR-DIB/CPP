@@ -24,7 +24,7 @@ int RPN::evaluate(const std::string &expression)
 	std::istringstream iss(expression);
 	std::string token;
 
-	while (iss >> token)
+	while (iss >> token) // >> reads characters from the stream until it encounters whitespace
 	{
 		if (token == "+" || token == "-" || token == "*" || token == "/")
 		{

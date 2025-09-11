@@ -11,10 +11,14 @@ class RPN
 private:
 	/* data */
 public:
-	RPN(/* args */);
-	~RPN();
-	RPN(const RPN &other);
-	RPN &operator=(const RPN &other);
+	RPN() {}
+	~RPN() {}
+	RPN(const RPN &other) { (void)other; }
+	RPN &operator=(const RPN &other)
+	{
+		(void)other;
+		return *this;
+	}
 	int evaluate(const std::string &expression);
 };
 

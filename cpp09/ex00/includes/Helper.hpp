@@ -11,7 +11,6 @@
 class Helper
 {
 public:
-	// implement connonical form
 	Helper() {}
 	~Helper() {}
 	Helper(const Helper &other) { (void)other; }
