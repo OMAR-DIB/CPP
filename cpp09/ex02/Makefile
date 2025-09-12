@@ -1,6 +1,7 @@
 NAME = PmergeMe
 
 SRCS =  main.cpp	\
+		core/PmergeMe.cpp \
 
 
 
