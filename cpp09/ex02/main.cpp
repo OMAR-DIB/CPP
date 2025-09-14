@@ -34,8 +34,8 @@ int main(int argc, char **argv)
         std::cout << "\nTime to process a range of " << vec.size()
                   << " elements with std::vector : "
                   << std::fixed << std::setprecision(5) << time_vec << " us" << std::endl;
-        //std::cout << "Comparisons: " << comparisonCounter << std::endl;
-        // ------------------------DEQUE
+        // std::cout << "Comparisons: " << comparisonCounter << std::endl;
+        //  ------------------------DEQUE
         std::deque<int> deq;
         sorter.loadInput(argv, deq);
         sorter.ensureUnique(deq);
